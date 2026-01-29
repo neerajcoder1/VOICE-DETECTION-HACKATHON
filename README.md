@@ -1,6 +1,13 @@
-# VOICE-DETECTION-HACKATHON
+# Voice Detection Dataset (Member A)
 
-  <img width="200" height="200" alt="ChatGPT Image Jan 28, 2026, 03_29_33 PM" src="https://github.com/user-attachments/assets/1fea654a-c0ce-42ed-88f3-08c929d197d3" />
+## Overview
+This folder contains the audio dataset prepared for AI vs Human voice detection.
 
+## Languages Covered
+- Hindi
+- English
+- Tamil
+- Telugu
+- Malayalam
 
-VOICE DETECTION HACKATHON
+## Dataset Structure
