@@ -1,0 +1,8 @@
+numpy
+librosa
+soundfile
+torch
+torchaudio
+transformers
+ffmpeg-python
+pytest
