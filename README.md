@@ -1,4 +1,4 @@
-# Voice Detection Dataset – Team A
+# Voice Detection Dataset – Member A
 
 ## Contributor
 **Prince Dubey**  
@@ -43,111 +43,33 @@ This file is used as input for preprocessing and training.
 
 After download, place the extracted folder as:
 
-Team B – Audio Preprocessing & Feature Pipeline Role
-
-Team B is responsible for building a robust audio preprocessing and feature extraction pipeline that converts raw audio input into a fixed-size numerical feature vector for machine-learning models and APIs.
-
+## Member B
+## Contributor
+**Neeraj Gahlout**  
+Role: Team B is responsible for building a robust audio preprocessing and feature extraction pipeline that converts raw audio input into a fixed-size numerical feature vector for machine-learning models and APIs.
 This module is the bridge between audio data and model inference.
-
-Responsibilities
-
-Decode Base64 audio input (MP3 / WAV)
-
-Normalize audio (mono, fixed sample rate)
-
-Handle empty, silent, or corrupted audio safely
-
-Extract numerical audio features
-
-Guarantee fixed-size output
-
-Ensure downstream components (model / API) never crash
-
-Pipeline Flow
-Base64 Audio
+## Pipeline Flow
+-`Base64 Audio`
    ↓
-Decode & Normalize
+-`Decode & Normalize`
    ↓
-Safety Checks
+-`Safety Checks`
    ↓
-Feature Extraction
+-`Feature Extraction`
    ↓
-Fixed-size Feature Vector (128)
+-`Fixed-size Feature Vector (128)`
 
-Folder Structure
-audio_pipeline/
+## Folder Structure
+`audio_pipeline/
 ├── __init__.py
 ├── preprocessing.py   # Base64 decoding & audio normalization
 ├── features.py        # Feature extraction logic
-└── pipeline.py        # End-to-end pipeline entry point
+└── pipeline.py        # End-to-end pipeline entry point`
 
-Main Entry Point
-pipeline_from_base64
-from audio_pipeline.pipeline import pipeline_from_base64
+## Summary
 
-features = pipeline_from_base64(audio_base64)
-
-
-Input
-
-Base64-encoded audio (MP3 / WAV)
-
-Output
-
-numpy.ndarray of shape (128,)
-
-The function always returns a valid vector, even if the audio input is invalid.
-
-Safety Design
-
-The pipeline includes multiple defensive guards:
-
-If audio decoding fails → returns zero vector
-
-If audio is empty or silent → returns zero vector
-
-If feature extraction fails → returns zero vector
-
-If feature shape is incorrect → auto-pads or trims
-
-This guarantees:
-
-Stable model training
-
-Stable inference
-
-Stable API behavior
-
-Feature Extraction
-
-MFCC-based statistical features
-
-Variable-length audio aggregated using mean and standard deviation
-
-Output padded or trimmed to 128 dimensions
-
-Compatible with:
-
-SVM
-
-XGBoost
-
-MLP
-
-Logistic Regression
-
-Usage by Other Teams
-Team C (Model Training)
-
-Uses this pipeline to convert training audio into features
-
-Receives consistent (128,) feature vectors
-
-Team D (API & Deployment)
-
-Uses the same pipeline for live inference
-
-No extra error handling required at API level
+`Team B delivers a fault-tolerant, production-ready audio feature pipeline that ensures system stability across training, inference, and deployment.
+This module is a core dependency and should not be modified without coordination.`
 
 
 ## Model & Inference (Member C)
