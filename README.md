@@ -62,9 +62,9 @@ This module is the bridge between audio data and model inference.
 ## Folder Structure
 `audio_pipeline/`
 `├── __init__.py`
-`├── preprocessing.py   # Base64 decoding & audio normalization`
-`├── features.py        # Feature extraction logic`
-`└── pipeline.py        # End-to-end pipeline entry point`
+`├── preprocessing.py`
+`├── features.py`
+`└── pipeline.py`
 
 ## Summary
 
