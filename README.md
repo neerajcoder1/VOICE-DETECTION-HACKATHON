@@ -60,11 +60,11 @@ This module is the bridge between audio data and model inference.
 -`Fixed-size Feature Vector (128)`
 
 ## Folder Structure
-`audio_pipeline/
-├── __init__.py
-├── preprocessing.py   # Base64 decoding & audio normalization
-├── features.py        # Feature extraction logic
-└── pipeline.py        # End-to-end pipeline entry point`
+`audio_pipeline/`
+`├── __init__.py`
+`├── preprocessing.py   # Base64 decoding & audio normalization`
+`├── features.py        # Feature extraction logic`
+`└── pipeline.py        # End-to-end pipeline entry point`
 
 ## Summary
 
