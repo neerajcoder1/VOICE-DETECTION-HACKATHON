@@ -43,20 +43,20 @@ This file is used as input for preprocessing and training.
 
 After download, place the extracted folder as:
 
-## Member B
-## Contributor
+## ( Member B)
+## Contributor -
 **Neeraj Gahlout**  
 Role: Team B is responsible for building a robust audio preprocessing and feature extraction pipeline that converts raw audio input into a fixed-size numerical feature vector for machine-learning models and APIs.
 This module is the bridge between audio data and model inference.
 ## Pipeline Flow
 -`Base64 Audio`
-   ↓
+   
 -`Decode & Normalize`
-   ↓
+   
 -`Safety Checks`
-   ↓
+   
 -`Feature Extraction`
-   ↓
+   
 -`Fixed-size Feature Vector (128)`
 
 ## Folder Structure
