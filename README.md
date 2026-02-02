@@ -52,3 +52,33 @@ This file is used as input for preprocessing and training.
 👉 **[https://drive.google.com/drive/folders/1Gs9y63qPlBd93RyMEpj7V3F50bKmC7b3?usp=sharing]**
 
 After download, place the extracted folder as:
+
+
+
+## Model & Inference (Member C)
+
+This module implements the core AI logic for detecting whether a voice sample is human-generated or AI-generated.
+
+### Responsibilities
+- Load a pretrained deepfake voice detection model
+- Perform inference on preprocessed audio (16 kHz, mono WAV)
+- Return structured results with:
+  - classification (real / fake)
+  - confidence score
+  - human-readable explanation
+
+### Interface
+The model exposes a single function: predict_explain(audio_path: str) -> dict
+
+
+Example output:
+
+{
+"classification": "fake",
+"confidence": 0.99,
+"explanation": "High confidence synthetic (AI-generated) voice."
+}
+
+
+This module is designed to be imported directly by the API layer after audio preprocessing.
+
