@@ -1,12 +1,20 @@
 from transformers import pipeline
 
-# Load model once (global, reused by API)
-voice_authenticator = pipeline(
-    "audio-classification",
-    model="MelodyMachine/Deepfake-audio-detection-V2"
-)
+voice_authenticator = None  # lazy-loaded
+
+
+def load_model():
+    global voice_authenticator
+    if voice_authenticator is None:
+        voice_authenticator = pipeline(
+            "audio-classification", model="MelodyMachine/Deepfake-audio-detection-V2"
+        )
+
 
 def predict_explain(audio_path: str) -> dict:
+
+    load_model()
+
     """
     Detect whether a voice sample is AI-generated or human.
 
@@ -41,8 +49,4 @@ def predict_explain(audio_path: str) -> dict:
         else:
             explanation = "Uncertain, but leans toward human voice."
 
-    return {
-        "classification": label,
-        "confidence": score,
-        "explanation": explanation
-    }
+    return {"classification": label, "confidence": score, "explanation": explanation}
