@@ -1,13 +1,4 @@
 fastapi
 uvicorn
-pydantic
-requests
-
 numpy
-librosa
 soundfile
-torch
-torchaudio
-transformers
-
-pytest
