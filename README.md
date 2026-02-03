@@ -43,6 +43,30 @@ This file is used as input for preprocessing and training.
 
 After download, place the extracted folder as:
 
+
+
+
+---
+
+## Sample Audio Files (Reference Only)
+
+These samples are provided only for **quick reference and verification**.  
+They are **not included in the repository**.
+
+### Hindi – AI Voice Sample
+- **Type:** AI-generated  
+- **Language:** Hindi  
+👉 https://drive.google.com/file/d/1ppn6uWGaKKnin0lPwVt0eYlsCZwPU0dK/view?usp=sharing
+
+### Hindi – Human Voice Sample
+- **Type:** Human  
+- **Language:** Hindi  
+👉 https://drive.google.com/file/d/1CNCr6iWdyMpCURWMwz5puKjOydIyiWv4/view?usp=sharing
+
+These samples help reviewers understand the difference between AI-generated and human speech used in the dataset.
+
+
+
 ## ( Member B)
 ## Contributor -
 **Neeraj Gahlout**  
@@ -98,4 +122,7 @@ Example output:
 
 
 This module is designed to be imported directly by the API layer after audio preprocessing.
+
+
+
 
