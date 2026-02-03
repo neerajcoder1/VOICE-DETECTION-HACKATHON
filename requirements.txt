@@ -9,6 +9,5 @@ soundfile
 torch
 torchaudio
 transformers
-ffmpeg-python
 
 pytest
