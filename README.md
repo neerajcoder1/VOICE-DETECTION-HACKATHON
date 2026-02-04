@@ -126,3 +126,153 @@ This module is designed to be imported directly by the API layer after audio pre
 
 
 
+
+API & Deployment (Member D)
+Contributor
+
+Aryan Singh Thapa
+Role: API Integration, Authentication & Deployment
+
+
+
+
+Overview
+
+This contribution provides the production-ready API layer and deployment setup for the AI vs Human Voice Detection system.
+
+The API acts as the final integration point, connecting:
+
+Team B’s audio preprocessing pipeline
+
+Team C’s model inference logic and exposing them through a secure, public REST API suitable for automated evaluation.
+
+
+
+Responsibilities
+
+Build FastAPI-based inference endpoint
+
+Handle audio input (Base64-encoded MP3/WAV)
+
+Manage authentication using API keys
+
+Integrate preprocessing and model inference
+
+Deploy and maintain a stable public endpoint
+
+
+
+API Flow (End-to-End):-
+
+Client Request (Base64 Audio)
+        ↓
+API Authentication (x-api-key)
+        ↓
+Team B Audio Pipeline (decode + safety checks)
+        ↓
+Temporary WAV conversion
+        ↓
+Team C Model Inference
+        ↓
+Structured JSON Response
+
+
+
+
+Public API Endpoint
+
+Method: POST
+Endpoint:
+/predict
+
+Authentication Header:
+
+x-api-key: DEV_KEY
+
+
+
+
+
+Request Format
+{
+  "audio_base64": "<BASE64_ENCODED_AUDIO>"
+}
+
+Audio may be MP3 or WAV
+Base64 string must not contain line breaks
+
+
+
+
+Response Format:
+
+{
+  "classification": "AI | Human",
+  "confidence": 0.95,
+  "explanation": "Human-readable explanation of the prediction"
+}
+
+
+
+Error Handling
+
+The API is designed to be fault-tolerant:
+
+Invalid or corrupted audio → safe fallback response
+
+Authentication failures → HTTP 401
+
+Internal errors → HTTP 500 with descriptive message
+
+The service never crashes on malformed input.
+
+
+
+Deployment
+
+Platform: Cloud-based web service
+
+Framework: FastAPI
+
+Server: Uvicorn
+
+Public HTTPS endpoint provided for evaluation
+
+No audio files are stored permanently
+
+The service is configured to remain accessible during automated evaluation.
+
+
+
+API Key Management
+
+Authentication is enforced via a static API key
+
+API key is configured through environment variables
+
+Example (local / evaluation):
+
+API_KEY=DEV_KEY
+
+
+
+
+Notes for Evaluators
+
+Endpoint is live and publicly accessible
+
+Supports automated testing workflows
+
+Complies with hackathon evaluation requirements
+
+Designed for low-latency, stable inference
+
+
+
+
+Summary
+
+Member D delivers a secure, stable, and evaluation-ready API layer that exposes the full AI voice detection pipeline as a production-grade service. This module finalizes the system and enables automated testing and scoring.
+
+
+
