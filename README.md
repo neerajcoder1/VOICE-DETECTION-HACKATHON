@@ -1,4 +1,6 @@
-# Voice Detection Dataset – Member A
+## Team - <img width="300" height="300" alt="ChatGPT Image Feb 4, 2026, 08_39_33 PM" src="https://github.com/user-attachments/assets/574bcdee-bb77-4c68-9684-45e161ef7309" />
+
+# Voice Detection Dataset – Member A 
 
 ## Contributor
 **Prince Dubey**  
@@ -127,7 +129,7 @@ This module is designed to be imported directly by the API layer after audio pre
 
 
 
-API & Deployment (Member D)
+## API & Deployment (Member D)
 Contributor
 
 ## Aryan Singh Thapa
@@ -224,7 +226,7 @@ Designed for low-latency, stable inference`
 
 
 
-Summary
+## Summary
 
 Member D delivers a secure, stable, and evaluation-ready API layer that exposes the full AI voice detection pipeline as a production-grade service. This module finalizes the system and enables automated testing and scoring.
 
