@@ -129,106 +129,126 @@ This module is designed to be imported directly by the API layer after audio pre
 
 
 
-## API & Deployment (Member D)
-Contributor
+## API Integration & Deployment (Member D)
 
-## Aryan Singh Thapa
-Role: API Integration, Authentication & Deployment
+### Contributor: Aryan Singh Thapa
+### Role: API Integration, Authentication & Deployment
 
-## Overview
+## Objective
 
-This contribution provides the production-ready API layer and deployment setup for the AI vs Human Voice Detection system.
-The API acts as the final integration point, connecting:
-Team B’s audio preprocessing pipeline
-Team C’s model inference logic and exposing them through a secure, public REST API suitable for automated evaluation.
+Deploy a public, stable API endpoint for AI-Generated Voice Detection that can be used by the hackathon’s automated evaluation system.
 
-## Responsibilities
+The API accepts Base64-encoded audio input, performs inference, and returns a structured JSON response containing classification results.
 
-Build FastAPI-based inference endpoint
-Handle audio input (Base64-encoded MP3/WAV)
-Manage authentication using API keys
-Integrate preprocessing and model inference
-Deploy and maintain a stable public endpoint
+## Final System Flow
 
-`API Flow (End-to-End):-`
+User Audio (Base64)
 
-`Client Request (Base64 Audio)`
         ↓
-`API Authentication (x-api-key)`
+API Authentication (API Key)
+
         ↓
-`Team B Audio Pipeline (decode + safety checks)`
+Audio Preprocessing (Team B)
+
         ↓
-`Temporary WAV conversion`
+Model Inference (Team C)
+
         ↓
-`Team C Model Inference`
-        ↓
-`Structured JSON Response`
+JSON Response
 
-`Public API Endpoint`
 
-`Method: POST`
-`Endpoint:`
-`/predict`
+## Public API Endpoint
 
-## Authentication Header:
+Method: POST
 
-`x-api-key: DEV_KEY`
+Endpoint: /predict
 
-Request Format
+### Authentication
+
+Requests must include a valid API key in the header:
+
+x-api-key: DEV_KEY
+
+### Request Format
+
+The API accepts Base64-encoded MP3/WAV audio.
+
 {
+
   "audio_base64": "<BASE64_ENCODED_AUDIO>"
+  
 }
 
-`Audio may be MP3 or WAV
-Base64 string must not contain line breaks`
+### Response Format
 
-`Response Format:`
+The API returns a structured JSON response as required by the problem statement.
 
 {
-  "classification": "AI | Human",
-  "confidence": 0.95,
-  "explanation": "Human-readable explanation of the prediction"
-}
-## Error Handling
 
-The API is designed to be fault-tolerant:
-Invalid or corrupted audio → safe fallback response
-Authentication failures → HTTP 401
-Internal errors → HTTP 500 with descriptive message
-The service never crashes on malformed input.
+  "classification": "AI | Human",
+  
+  "confidence": 0.95,
+  
+  "explanation": "Human-readable explanation of the prediction"
+  
+}
+
+## API Behavior & Validation
+
+### The endpoint is designed to:
+
+Validate authentication using the API key
+
+Correctly parse and validate request data
+
+Handle invalid or corrupted inputs gracefully
+
+Return consistent JSON responses
+
+Remain stable under multiple requests
 
 ## Deployment
 
-`Platform: Cloud-based web service
 Framework: FastAPI
+
 Server: Uvicorn
-Public HTTPS endpoint provided for evaluation
+
+Deployed as a public HTTPS endpoint
+
 No audio files are stored permanently
-The service is configured to remain accessible during automated evaluation.`
+
+Optimized for low latency and reliability during evaluation
 
 ## API Key Management
 
-`Authentication is enforced via a static API key
-API key is configured through environment variables
-Example (local / evaluation):
-API_KEY=DEV_KEY`
+API key is configured using environment variables
 
-## Notes for Evaluators
-`Endpoint is live and publicly accessible
-Supports automated testing workflows
-Complies with hackathon evaluation requirements
-Designed for low-latency, stable inference`
+Required for all prediction requests
 
-## out-put
-![WhatsApp Image 2026-02-04 at 1 08 37 AM](https://github.com/user-attachments/assets/fec2a70d-2992-480d-ac6f-7cf3c4a3a72e)
+Used by the automated evaluation system for authentication
 
+## Evaluation Readiness
 
+This API meets all hackathon evaluation requirements:
 
+Public and accessible endpoint
 
+Stable request handling
+
+Correct JSON response structure
+
+Authentication enforced
+
+Ready for automated testing with official audio samples
 
 ## Summary
 
-Member D delivers a secure, stable, and evaluation-ready API layer that exposes the full AI voice detection pipeline as a production-grade service. This module finalizes the system and enables automated testing and scoring.
+This module delivers the final API layer of the project, enabling automated evaluation by exposing the AI voice detection system through a secure, production-ready endpoint.
+
+
+## OUTPUT
+![WhatsApp Image 2026-02-04 at 1 08 37 AM](https://github.com/user-attachments/assets/fec2a70d-2992-480d-ac6f-7cf3c4a3a72e)
+
 
 
 
